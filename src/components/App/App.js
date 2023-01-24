@@ -5,7 +5,7 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
 import ModalWithForm from '../ModalWithForm/ModalWithForm';
-import { location, secretKey } from '../../utils/constants'
+import { latitude, longitude, secretKey } from '../../utils/constants'
 import { getForecastWeather, filterDataFromWeatherAPI } from '../../utils/weatherAPI';
 import { defaultClothingItems } from '../../utils/clothingItems';
 
@@ -24,8 +24,8 @@ const App = () => {
   }
 
   useEffect(() => {
-    if (location.latitude && location.longitude) {
-      getForecastWeather(location, secretKey)
+    if (latitude && longitude) {
+      getForecastWeather(latitude, longitude, secretKey)
       .then((data) => {
         setWeatherData(filterDataFromWeatherAPI(data));
       })

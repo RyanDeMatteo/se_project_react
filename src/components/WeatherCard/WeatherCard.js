@@ -27,7 +27,7 @@ function WeatherCard({ weatherData }) {
 
     return (
     <div className="weather-card weather-card__background-day">
-        <h2 className="weather-card__temp">{weatherData.temperature}°F</h2>
+        <h2 className="weather-card__temp">{Math.round(weatherData.temperature)}°F</h2>
         <div className="weather-card__wrapper">
             <img
             className="weather-card__image"

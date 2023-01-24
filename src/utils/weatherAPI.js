@@ -1,9 +1,6 @@
-import { secretKey } from "./constants.js";
-
-const getForecastWeather = (location, secretKey) => {
-    const parsedLocation = `${location.latitude}, ${location.longitude}`;
+const getForecastWeather = (latitude, longitude, secretKey) => {
     return fetch(
-        'http://api.weatherapi.com/v1/forecast.json?key$=${secretKey}&q=${parsedLocation}&days=1'
+        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${secretKey}`
     ).then((res) => {
         if (res.ok) {
         return res.json()
@@ -18,8 +15,10 @@ const filterDataFromWeatherAPI = (data) => {
         return null;
     }
     const weather = {};
-    weather.city = data.location.name
-    weather.temperature = data.current.temp_f;
+    weather.city = data.name;
+    weather.temperature = data.main.temp;
+    weather.condition = data.weather.main;
+    weather.temperatureF = `${Math.round(data.main.temp)}°F`;
     return weather;
 }
 

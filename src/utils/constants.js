@@ -1,4 +1,5 @@
-const location = { latitude: '42.809730', longitude: '-70.876740' };
+const latitude = '42.809730';
+const longitude = '-70.876740';
 
 const secretKey = '5f183c5059f8d8aff084e3ec7dd2af32'
 
@@ -18,4 +19,4 @@ const weatherConditions = {
   };
   
 
-export { location, secretKey, weatherConditions };
+export { latitude, longitude, secretKey, weatherConditions };
