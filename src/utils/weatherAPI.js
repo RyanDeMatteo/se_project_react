@@ -1,9 +1,9 @@
-import { APIkey } from "./constants.js";
+import { secretKey } from "./constants.js";
 
-const getForecastWeather = (location, APIkey) => {
+const getForecastWeather = (location, secretKey) => {
     const parsedLocation = `${location.latitude}, ${location.longitude}`;
     return fetch(
-        'http://api.weatherapi.com/v1/forecast.json?key$=${APIkey}&q=${parsedLocation}&days=1'
+        'http://api.weatherapi.com/v1/forecast.json?key$=${secretKey}&q=${parsedLocation}&days=1'
     ).then((res) => {
         if (res.ok) {
         return res.json()

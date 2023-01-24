@@ -3,10 +3,10 @@ import './Main.css'
 import ItemCard from "../ItemCard/ItemCard.js"
 import WeatherCard from "../WeatherCard/WeatherCard.js"
 
-function Main({ weatherData, cards, onCardClick }) {
+function Main({ weatherData, defaultClothingItems, handleCardClick }) {
     const actualWeather = weatherData.temperature
 
-    const weatherType = () => {
+    const getWeatherType = () => {
         if (actualWeather >= 86) {
             return 'hot';
         } else if (actualWeather >= 66 && actualWeather <= 85) {
@@ -16,27 +16,35 @@ function Main({ weatherData, cards, onCardClick }) {
         }
     };
 
+    function filterClothing(card) {
+        if (card.weather === getWeatherType()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    const clothingOptions = defaultClothingItems.filter((items) => 
+        filterClothing(items)
+    );
+
     return (
         <main className='main'>
             <WeatherCard weatherData={weatherData} />
-            <section className='main__clothes'>
-                <div className='main__info'>
-                    <div className='main__description_container'>
-                        <p className='main__description'>Today is ${actualWeather}°F and it is {weatherType()}</p>
-                        <p className='main__description_slash'> / </p>
-                        <p className='main__description'>You may want to wear:</p>
-                    </div>
-                </div>
+                <h3 className='main__header'>Today is {Math.round(actualWeather)}&°F / You may want to wear:</h3>
                 <ul className='main__items'>
-                    {cards.filter(card => card.weather ===weatherType()).map(filteredCard => {
+                    {clothingOptions.map((item) => {
                     <ItemCard
-                    key={filteredCard.id}
-                    card={filteredCard}
-                    onCardClick={onCardClick}
+                    isOpen="false"
+                    clothingOption={item}
+                    key={item._id}
+                    name={item.name}
+                    image={item.link}
+                    weather={item.weather}
+                    onCardClick={() => handleCardClick(item)}
                     />
                     })}
                 </ul>
-            </section>
         </main>
     )
 }

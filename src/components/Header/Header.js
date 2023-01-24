@@ -2,7 +2,7 @@ import React from "react";
 import './Header.css';
 import './Navigation.css';
 import logoPath from "../../images/logo.svg";
-import avatarDefault from "../../images/avater-default.png";
+import avatarDefault from "../../images/avatar-default.svg";
 
 const Header = ({ weatherData, handleAddClick }) => {
 if (!weatherData) return null;

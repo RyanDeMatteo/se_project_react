@@ -1,31 +1,29 @@
-import logo from '../logo.svg';
-import '../blocks/App.css';
+import React, { useState, useEffect } from 'react';
+import './App.css';
 import Header from "../Header/Header";
 import Main from "../Main/Main";
-import Footer from "../Footer/Footer"
-import { location } from '../../utils/constants'
-import { getForecastWeather } from '../utils/weatherAPI';
-import secretKey from '../../secret'
-import { filterDataFromWeatherAPI } from '../../utils/weatherAPI';
-import { defaultClothingItems } from '../../utils/clothingItems';
+import Footer from "../Footer/Footer";
+import ItemModal from "../ItemModal/ItemModal";
 import ModalWithForm from '../ModalWithForm/ModalWithForm';
+import { location, secretKey } from '../../utils/constants'
+import { getForecastWeather, filterDataFromWeatherAPI } from '../../utils/weatherAPI';
+import { defaultClothingItems } from '../../utils/clothingItems';
 
 const App = () => {
   const [weatherData, setWeatherData] = React.useState({});
-  const [clothingItem, setClothingItem] = React.useState([]);
-  const [activeModal, setActiveModal] = React.useState();
-  const [selectedCard, setSelectedCard] = React.useState(null);
+  const [activeModal, setActiveModal] = useState();
+  const [selectedCard, setSelectedCard] = React.useState({});
 
   const handleCardClick = (card) => {
     setSelectedCard(card);
-    setActiveModal('preview')
+    setActiveModal("preview")
   }
 
   const closeAllModals = () => {
     setActiveModal(false);
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (location.latitude && location.longitude) {
       getForecastWeather(location, secretKey)
       .then((data) => {
@@ -35,13 +33,9 @@ const App = () => {
     }
   }, []);
 
-  React.useEffect(() => {
-    setClothingItem(defaultClothingItems)
-  });
-
   return (
     <div className="app">
-      <div>
+      <div className="app__wrapper">
         <Header 
         weatherData={weatherData}
         openModal={() => {
@@ -50,7 +44,7 @@ const App = () => {
         />
         <Main
         weatherData={weatherData}
-        defaultClothing={defaultClothingItems}
+        defaultClothingItems={defaultClothingItems}
         handleCardClick={handleCardClick}
         />
         <Footer />
@@ -124,7 +118,7 @@ const App = () => {
       )}
       <ItemModal
       isOpen={activeModal === "preview"}
-      name={preview}
+      name={"preview"}
       card={selectedCard}
       onClose={closeAllModals}
       />

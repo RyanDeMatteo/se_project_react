@@ -14,7 +14,7 @@ function WeatherCard({ weatherData }) {
         } else if (weatherCondition.includes("fog")) {
             return "fogday"
         } else if (weatherCondition.includes("rain") ||
-        weatherCondition.includes("drizzle")) {
+            weatherCondition.includes("drizzle")) {
             return "rainday"
         } else if (weatherCondition.includes("snow")) {
             return "snowday"
