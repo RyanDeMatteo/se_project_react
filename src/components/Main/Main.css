@@ -1,0 +1,25 @@
+.main {
+    width: 95vw;
+    margin: 0 auto 0;
+    max-width: 1360px;
+}
+
+.main__header {
+    margin: 0;
+    padding-top: 40px;
+    font-family: "Cabinet Grotesk", "Arial", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.2;
+}
+
+.main__items {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    column-gap: 15px;
+    row-gap: 20px;
+}

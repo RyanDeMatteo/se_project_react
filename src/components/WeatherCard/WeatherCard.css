@@ -1,0 +1,43 @@
+.weather-card {
+    max-width: 1360px;
+    height: 80px;
+    margin-top: 28px;
+    border-radius: 12px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.weather-card__temp {
+    padding: 0;
+    margin: 0 0 0 16px;
+    align-self: center;
+    font-family: "Cabinet Grotesk", "Arial", sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.2;
+}
+
+.weather-card__wrapper {
+    position: relative
+}
+
+.weather-card__image {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    right: 0;
+}
+
+.weather-card__background-day {
+    background-color: #00A3FF;
+}
+
+.weather-card__background-day-precipitation {
+    background-color: #6ca6c7;
+}
+
+.weather-card__background-night {
+    background-color: #286897;
+}

@@ -1,5 +1,5 @@
-import { weatherConditions } from "../../utils/constants.js"
-import "./WeatherCard.css"
+import { weatherConditions } from '../../utils/constants';
+import './WeatherCard.css'
 
 function WeatherCard({ weatherData }) {
     if (!weatherData) return null;
@@ -23,16 +23,16 @@ function WeatherCard({ weatherData }) {
         }
     }
 
-    const weatherConditionText= selectWeatherCondition(weatherData);
+    const weatherConditionText = selectWeatherCondition(weatherData);
 
     return (
     <div className="weather-card weather-card__background-day">
         <h2 className="weather-card__temp">{Math.round(weatherData.temperature)}°F</h2>
         <div className="weather-card__wrapper">
             <img
-            className="weather-card__image"
-            src={process.env.PUBLIC_URL + weatherConditions[weatherConditionText]}
-            alt={weatherConditionText}
+              className="weather-card__image"
+              src={process.env.PUBLIC_URL + weatherConditions[weatherConditionText]}
+              alt={weatherConditionText}
             />
         </div>
     </div>

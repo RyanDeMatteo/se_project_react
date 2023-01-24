@@ -31,19 +31,19 @@ function Main({ weatherData, defaultClothingItems, handleCardClick }) {
     return (
         <main className='main'>
             <WeatherCard weatherData={weatherData} />
-                <h3 className='main__header'>Today is {Math.round(actualWeather)}°F / You may want to wear:</h3>
+                <h3 className='main__header'>Today it's {Math.round(actualWeather)}°F / You may want to wear:</h3>
                 <ul className='main__items'>
-                    {clothingOptions.map((item) => {
+                    {clothingOptions.map((item) => (
                     <ItemCard
-                    isOpen="false"
-                    clothingOption={item}
-                    key={item._id}
-                    name={item.name}
-                    image={item.link}
-                    weather={item.weather}
-                    onCardClick={() => handleCardClick(item)}
+                      isOpen="false"
+                      clothingOption={item}
+                      key={item._id}
+                      name={item.name}
+                      image={item.link}
+                      weather={item.weather}
+                      onCardClick={() => handleCardClick(item)}
                     />
-                    })}
+                    ))}
                 </ul>
         </main>
     )

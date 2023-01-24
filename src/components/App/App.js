@@ -78,40 +78,40 @@ const App = () => {
           <h4 className="form__label">Select the weather type:</h4>
           <div className="form__radio-container">
             <div className="form__radio">
-            <input
-            className="form__input_type_radio"
-            name="temp"
-            value="Hot"
-            type="radio"
-            id="hot"
-            />
-            <label className="form__label-radio" htmlFor="hot">
-              Hot
-            </label>
+              <input
+                className="form__input_type_radio"
+                name="temp"
+                value="Hot"
+                type="radio"
+                id="hot"
+              />
+              <label className="form__label-radio" htmlFor="hot">
+                Hot
+              </label>
             </div>
             <div className="form__radio">
-            <input
-            className="form__input_type_radio"
-            name="temp"
-            value="Warm"
-            type="radio"
-            id="warm"
-            />
-            <label className="form__label-radio" htmlFor="warm">
-              Warm
-            </label>
+              <input
+                className="form__input_type_radio"
+                name="temp"
+                value="Warm"
+                type="radio"
+                id="warm"
+              />
+              <label className="form__label-radio" htmlFor="warm">
+                Warm
+              </label>
             </div>
             <div className="form__radio">
-            <input
-            className="form__input_type_radio"
-            name="temp"
-            value="Cold"
-            type="radio"
-            id="cold"
-            />
-            <label className="form__label-radio" htmlFor="cold">
-              Cold
-            </label>
+              <input
+                className="form__input_type_radio"
+                name="temp"
+                value="Cold"
+                type="radio"
+                id="cold"
+              />
+              <label className="form__label-radio" htmlFor="cold">
+                Cold
+              </label>
             </div>
           </div>
         </ModalWithForm>

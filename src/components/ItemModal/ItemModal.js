@@ -4,11 +4,11 @@ import "./ItemModal.css";
 function ItemModal({ isOpen, name, card, onClose }) {
     return (
         <div
-        className={
+          className={
             isOpen
             ? `item-modal modal_type_${name}`
             : `modal_type_${name} item-modal_hidden`
-        }
+          }
         >
             <div className="item-modal__container">
                 <button
