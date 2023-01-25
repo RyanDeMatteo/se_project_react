@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/se_project_react/static/css/main.d47b3422.css",
+    "main.js": "/se_project_react/static/js/main.770dae30.js",
+    "static/js/787.79f92504.chunk.js": "/se_project_react/static/js/787.79f92504.chunk.js",
+    "static/media/CabinetGrotesk-Bold.woff": "/se_project_react/static/media/CabinetGrotesk-Bold.4e6ceb64c2d0c044d897.woff",
+    "static/media/CabinetGrotesk-Regular.woff": "/se_project_react/static/media/CabinetGrotesk-Regular.513117a4acf2bda47c67.woff",
+    "static/media/CabinetGrotesk-Medium.woff": "/se_project_react/static/media/CabinetGrotesk-Medium.ed9c4b9af2fe3a8dd14d.woff",
+    "static/media/CabinetGrotesk-Black.woff": "/se_project_react/static/media/CabinetGrotesk-Black.82541dc8d6ed997e68bf.woff",
+    "static/media/logo.svg": "/se_project_react/static/media/logo.2e52a3b54443b649938df0a9b3d231e2.svg",
+    "static/media/cloudday.svg": "/se_project_react/static/media/cloudday.61392a4f9597cc28f09c0e6817411d22.svg",
+    "static/media/close-button.svg": "/se_project_react/static/media/close-button.5041c8cbf1275be14ac1.svg",
+    "index.html": "/se_project_react/index.html",
+    "static/media/avatar-default.svg": "/se_project_react/static/media/avatar-default.9fa167de771c49766f516e2be0184b84.svg",
+    "main.d47b3422.css.map": "/se_project_react/static/css/main.d47b3422.css.map",
+    "main.770dae30.js.map": "/se_project_react/static/js/main.770dae30.js.map",
+    "787.79f92504.chunk.js.map": "/se_project_react/static/js/787.79f92504.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d47b3422.css",
+    "static/js/main.770dae30.js"
+  ]
+}
