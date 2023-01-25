@@ -24,7 +24,7 @@ const App = () => {
   };
 
   const closeAllModals = () => {
-    setActiveModal(false);
+    setActiveModal("");
   };
 
   useEffect(() => {

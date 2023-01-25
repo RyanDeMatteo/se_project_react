@@ -26,10 +26,6 @@
   z-index: 1;
 }
 
-.card__title:hover {
-  cursor: pointer;
-}
-
 .card__image {
   position: absolute;
   top: 0;
