@@ -1,37 +1,45 @@
 .card {
-    height: 328px;
-    width: 328px;
-    list-style-type: none;
-    position: relative;
-    margin-top: 34px;
-    overflow: hidden;
-    gap: 17px;
+  height: 328px;
+  width: 328px;
+  list-style-type: none;
+  position: relative;
+  margin-top: 34px;
+  overflow: hidden;
+  gap: 17px;
+}
+
+.card__wrapper {
+  display: flex;
+  justify-content: center;
 }
 
 .card__title {
-    font-family: "Cabinet Grotesk", "Arial", sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 1.2;
-    color: rgba(0, 0, 0, 0.6);
-    padding: 2px 12px;
-    border-radius: 4px;
-    background-color: #fff;
-    align-self: center;
-    margin-top: 16px;
-    z-index: 1;
-    }
-    
+  font-family: "Cabinet Grotesk", "Arial", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.2;
+  color: rgba(0, 0, 0, 0.6);
+  padding: 2px 12px;
+  border-radius: 4px;
+  background-color: #fff;
+  margin-top: 16px;
+  z-index: 1;
+}
+
+.card__title:hover {
+  cursor: pointer;
+}
+
 .card__image {
-    position: absolute;
-    top: 0;
-    object-fit: cover;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
+  position: absolute;
+  top: 0;
+  object-fit: cover;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
 }
 
 .card__image:hover {
-    cursor: pointer;
+  cursor: pointer;
 }

@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
-import ModalWithForm from '../ModalWithForm/ModalWithForm';
-import { latitude, longitude, secretKey } from '../../utils/constants'
-import { getForecastWeather, filterDataFromWeatherAPI } from '../../utils/weatherAPI';
-import { defaultClothingItems } from '../../utils/clothingItems';
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import { latitude, longitude, secretKey } from "../../utils/constants";
+import {
+  getForecastWeather,
+  filterDataFromWeatherAPI,
+} from "../../utils/weatherAPI";
+import { defaultClothingItems } from "../../utils/clothingItems";
 
 const App = () => {
   const [weatherData, setWeatherData] = useState({});
@@ -16,64 +19,62 @@ const App = () => {
 
   const handleCardClick = (card) => {
     setSelectedCard(card);
-    setActiveModal('preview');
-  }
+    setActiveModal("preview");
+  };
 
   const closeAllModals = () => {
     setActiveModal(false);
-  }
+  };
 
   useEffect(() => {
     if (latitude && longitude) {
       getForecastWeather(latitude, longitude, secretKey)
-      .then((data) => {
-        setWeatherData(filterDataFromWeatherAPI(data));
-      })
-      .catch((err) => console.log(err));
+        .then((data) => {
+          setWeatherData(filterDataFromWeatherAPI(data));
+        })
+        .catch((err) => console.log(err));
     }
   }, []);
 
   return (
     <div className="app">
       <div className="app__wrapper">
-        <Header 
-        weatherData={weatherData}
-        handleAddClick={() => {
-          setActiveModal('add');
-        }}
+        <Header
+          weatherData={weatherData}
+          handleAddClick={() => {
+            setActiveModal("add");
+          }}
         />
         <Main
-        weatherData={weatherData}
-        defaultClothingItems={defaultClothingItems}
-        onCardClick={handleCardClick}
+          weatherData={weatherData}
+          defaultClothingItems={defaultClothingItems}
+          onCardClick={handleCardClick}
         />
         <Footer />
       </div>
-      {activeModal === 'add' && (
+      {activeModal === "add" && (
         <ModalWithForm
-        isOpen={activeModal === 'add'}
-        name="add"
-        title="New Garment"
-        buttonText="Add Garment"
-        onClose={closeAllModals}
+          title="New Garment"
+          buttonText="Add Garment"
+          onClose={closeAllModals}
         >
           <h4 className="form__label">Name</h4>
           <input
-          className="form__input form__input_type_name"
-          name="name"
-          type="text"
-          placeholder="Name"
-          minLength="1"
-          maxLength="40"
-          required
+            className="form__input form__input_type_name"
+            name="name"
+            type="text"
+            placeholder="Name"
+            minLength="1"
+            maxLength="40"
+            required
           />
           <h4 className="form__label">Image</h4>
           <input
-          className="form__input form__input_type_image"
-          name="image"
-          type="url"
-          placeholder="Image URL"
-          required
+            className="form__input form__input_type_image"
+            name="image"
+            type="url"
+            placeholder="Image URL"
+            required
           />
           <h4 className="form__label">Select the weather type:</h4>
           <div className="form__radio-container">
@@ -116,12 +117,9 @@ const App = () => {
           </div>
         </ModalWithForm>
       )}
-      <ItemModal
-      isOpen={activeModal === 'preview'}
-      name={"preview"}
-      card={selectedCard}
-      onClose={closeAllModals}
-      />
+      {activeModal === "preview" && (
+        <ItemModal card={selectedCard} onClose={closeAllModals} />
+      )}
     </div>
   );
 };

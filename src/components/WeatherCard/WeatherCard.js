@@ -1,8 +1,25 @@
-import { weatherConditions } from '../../utils/constants';
+/* import { weatherConditions } from '../../utils/constants'; */
 import './WeatherCard.css'
+import cloudDay from "../../images/cloudday.svg"
 
 function WeatherCard({ weatherData }) {
-    if (!weatherData) return null;
+    return (
+    <div className="weather-card weather-card__background-day">
+        <h2 className="weather-card__temp">{Math.round(weatherData.temperature)}°F</h2>
+        <div className="weather-card__wrapper">
+            <img
+              className="weather-card__image"
+              src={cloudDay}
+              alt="cloudy"
+            />
+        </div>
+    </div>
+    );
+}
+
+export default WeatherCard;
+
+    /* if (!weatherData) return null;
 
     function selectWeatherCondition(weatherData) {
         const weatherCondition = weatherData?.condition?.toLowerCase() || "";
@@ -23,20 +40,4 @@ function WeatherCard({ weatherData }) {
         }
     }
 
-    const weatherConditionText = selectWeatherCondition(weatherData);
-
-    return (
-    <div className="weather-card weather-card__background-day">
-        <h2 className="weather-card__temp">{Math.round(weatherData.temperature)}°F</h2>
-        <div className="weather-card__wrapper">
-            <img
-              className="weather-card__image"
-              src={process.env.PUBLIC_URL + weatherConditions[weatherConditionText]}
-              alt={weatherConditionText}
-            />
-        </div>
-    </div>
-    );
-}
-
-export default WeatherCard;
+    const weatherConditionText = selectWeatherCondition(weatherData);*/
