@@ -26,7 +26,7 @@
     position: relative;
 }
 
-.item-modal__button {
+.item-modal__close-button {
     background: url("../../images/close-button.svg");
     width: 16px;
     height: 16px;
@@ -37,8 +37,6 @@
     top: 27px;
     cursor: pointer;
 }
-
-
 
 .item-modal__image {
     width: 498px;

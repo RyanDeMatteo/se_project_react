@@ -30,3 +30,24 @@ function ItemModal({ isOpen, name, card, onClose }) {
 }
 
 export default ItemModal
+
+/* function ItemModal({ card, onClose }) {
+    return (
+        <div className="item-modal item-modal_hidden">
+            <div className="item-modal__container">
+                <button
+                  className="item-modal__close-button"
+                  type="button"
+                  onClick={() => onClose(null)}
+                  ></button>
+                <img
+                  className="item-modal__image"
+                  src={card.link}
+                  alt="Clothing item"
+                  />
+                <p className="item-modal__title">{card.name}</p>
+                <p className="item-modal__subtitle">Weather: {card.weather}</p>
+            </div>
+        </div>
+    )
+} */

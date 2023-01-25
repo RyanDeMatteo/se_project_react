@@ -3,7 +3,7 @@ import './Main.css'
 import ItemCard from "../ItemCard/ItemCard.js"
 import WeatherCard from "../WeatherCard/WeatherCard.js"
 
-function Main({ weatherData, defaultClothingItems, handleCardClick }) {
+function Main({ weatherData, defaultClothingItems, onCardClick }) {
     const actualWeather = weatherData.temperature
 
     const getWeatherType = () => {
@@ -41,7 +41,7 @@ function Main({ weatherData, defaultClothingItems, handleCardClick }) {
                       name={item.name}
                       image={item.link}
                       weather={item.weather}
-                      onCardClick={() => handleCardClick(item)}
+                      onCardClick={onCardClick}
                     />
                     ))}
                 </ul>

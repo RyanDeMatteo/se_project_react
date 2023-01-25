@@ -10,13 +10,13 @@ import { getForecastWeather, filterDataFromWeatherAPI } from '../../utils/weathe
 import { defaultClothingItems } from '../../utils/clothingItems';
 
 const App = () => {
-  const [weatherData, setWeatherData] = React.useState({});
-  const [activeModal, setActiveModal] = useState();
-  const [selectedCard, setSelectedCard] = React.useState({});
+  const [weatherData, setWeatherData] = useState({});
+  const [activeModal, setActiveModal] = useState("");
+  const [selectedCard, setSelectedCard] = useState({});
 
   const handleCardClick = (card) => {
     setSelectedCard(card);
-    setActiveModal("preview")
+    setActiveModal('preview');
   }
 
   const closeAllModals = () => {
@@ -38,20 +38,20 @@ const App = () => {
       <div className="app__wrapper">
         <Header 
         weatherData={weatherData}
-        openModal={() => {
-          setActiveModal("add");
+        handleAddClick={() => {
+          setActiveModal('add');
         }}
         />
         <Main
         weatherData={weatherData}
         defaultClothingItems={defaultClothingItems}
-        handleCardClick={handleCardClick}
+        onCardClick={handleCardClick}
         />
         <Footer />
       </div>
-      {activeModal === "add" && (
+      {activeModal === 'add' && (
         <ModalWithForm
-        isOpen={activeModal === "add"}
+        isOpen={activeModal === 'add'}
         name="add"
         title="New Garment"
         buttonText="Add Garment"
@@ -117,7 +117,7 @@ const App = () => {
         </ModalWithForm>
       )}
       <ItemModal
-      isOpen={activeModal === "preview"}
+      isOpen={activeModal === 'preview'}
       name={"preview"}
       card={selectedCard}
       onClose={closeAllModals}
