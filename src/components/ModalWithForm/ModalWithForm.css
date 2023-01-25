@@ -108,7 +108,7 @@
   justify-content: center;
   width: 124px;
   height: 36px;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 1);
   color: #fff;
   font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 500;
@@ -119,4 +119,9 @@
   margin-top: 32px;
   border: 0;
   margin-bottom: 44px;
+}
+
+.form__submit:hover {
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.6);
 }
