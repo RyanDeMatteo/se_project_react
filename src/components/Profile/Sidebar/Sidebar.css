@@ -1,4 +1,25 @@
 .sidebar__container {
-  width: 25vw;
-  min-width: 300px;
+  width: 25%;
+}
+
+.sidebar__header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 56px;
+  width: 229px;
+}
+
+.sidebar__avatar {
+  height: 56px;
+  width: 56px;
+  box-sizing: border-box;
+}
+
+.sidebar__name {
+  padding-left: 16px;
+  font-family: "Cabinet-Grotesk", "Arial", san-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
 }

@@ -53,11 +53,13 @@
 }
 
 .header__nav-user {
+  color: #000;
   height: 24px;
   font-family: "Cabinet Grotesk";
   font-weight: 700;
   font-size: 20px;
   line-height: 1.2;
+  text-decoration: none;
 }
 
 .header__nav-avatar {

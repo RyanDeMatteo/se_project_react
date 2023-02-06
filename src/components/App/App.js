@@ -21,6 +21,7 @@ const App = () => {
   const [weatherData, setWeatherData] = useState({});
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
+  const [clothingItems, setClothingItems] = useState([]);
 
   const handleCardClick = (card) => {
     setSelectedCard(card);
@@ -47,6 +48,14 @@ const App = () => {
     }
   }, []);
 
+  /* const fetchClothingItems = () => {
+    getItems()
+      .then((data) => {
+        setClothingItems(data);
+      })
+      .catch((err) => console.log(err));
+  }; */
+
   return (
     <div className="app">
       <CurrentTemperatureUnitContext.Provider
@@ -61,7 +70,13 @@ const App = () => {
           />
           <Switch>
             <Route path="/profile">
-              <Profile />
+              <Profile
+                clothingItems={clothingItems}
+                handleCardClick={handleCardClick}
+                openModal={() => {
+                  setActiveModal("add");
+                }}
+              />
             </Route>
             <Route path="/">
               <Main

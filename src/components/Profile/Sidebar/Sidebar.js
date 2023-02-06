@@ -5,7 +5,14 @@ import avatarDefault from "../../../images/avatar-default.svg";
 function Sidebar() {
   return (
     <div className="sidebar__container">
-      <img className="sidebar__avatar" src={avatarDefault} alt="user avatar" />
+      <div className="sidebar__header">
+        <img
+          className="sidebar__avatar"
+          src={avatarDefault}
+          alt="user avatar"
+        />
+        <p className="sidebar__name">Tim Turner</p>
+      </div>
     </div>
   );
 }

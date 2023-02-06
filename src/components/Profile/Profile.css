@@ -1,0 +1,7 @@
+.profile__container {
+  margin: 0 auto 0;
+  width: 100vw;
+  max-width: 1360px;
+  display: flex;
+  flex-direction: row;
+}
