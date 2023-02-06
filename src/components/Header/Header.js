@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import "./Header.css";
 import logoPath from "../../images/logo.svg";
 import avatarDefault from "../../images/avatar-default.svg";
@@ -15,7 +16,13 @@ const Header = ({ weatherData, handleAddClick }) => {
   return (
     <header className="header">
       <div className="header__container">
-        <img src={logoPath} alt="What to Wear logo" className="header__logo" />
+        <NavLink to="/">
+          <img
+            src={logoPath}
+            alt="What to Wear logo"
+            className="header__logo"
+          />
+        </NavLink>
         <p className="header__date">
           {currentDate}, {weatherData.city}
         </p>
@@ -25,12 +32,16 @@ const Header = ({ weatherData, handleAddClick }) => {
         <button onClick={handleAddClick} className="header__nav-button">
           + Add clothes
         </button>
-        <p className="header__nav-user">{username}</p>
-        <img
-          className="header__nav-avatar"
-          src={avatarDefault}
-          alt="user avatar"
-        />
+        <NavLink to="/profile" className="header__nav-user">
+          {username}
+        </NavLink>
+        <NavLink to="/profile">
+          <img
+            className="header__nav-avatar"
+            src={avatarDefault}
+            alt="user avatar"
+          />
+        </NavLink>
       </div>
     </header>
   );

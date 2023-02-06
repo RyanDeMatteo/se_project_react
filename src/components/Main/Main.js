@@ -35,15 +35,17 @@ function Main({ weatherData, defaultClothingItems, onCardClick }) {
           : weatherData.temperatureC}{" "}
         / You may want to wear:
       </h3>
-      <ul className="main__items">
-        {clothingOptions.map((item) => (
-          <ItemCard
-            clothingOption={item}
-            key={item._id}
-            onCardClick={onCardClick}
-          />
-        ))}
-      </ul>
+      <div className="main__container">
+        <ul className="main__items">
+          {clothingOptions.map((item) => (
+            <ItemCard
+              clothingOption={item}
+              key={item._id}
+              onCardClick={onCardClick}
+            />
+          ))}
+        </ul>
+      </div>
     </main>
   );
 }

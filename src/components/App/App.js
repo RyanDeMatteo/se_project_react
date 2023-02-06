@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
+import Profile from "../Profile/Profile";
 import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
@@ -57,11 +59,18 @@ const App = () => {
               setActiveModal("add");
             }}
           />
-          <Main
-            weatherData={weatherData}
-            defaultClothingItems={defaultClothingItems}
-            onCardClick={handleCardClick}
-          />
+          <Switch>
+            <Route path="/profile">
+              <Profile />
+            </Route>
+            <Route path="/">
+              <Main
+                weatherData={weatherData}
+                defaultClothingItems={defaultClothingItems}
+                onCardClick={handleCardClick}
+              />
+            </Route>
+          </Switch>
           <Footer />
         </div>
         {activeModal === "add" && (
