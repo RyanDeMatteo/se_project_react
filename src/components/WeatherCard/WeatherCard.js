@@ -1,25 +1,30 @@
 /* import { weatherConditions } from '../../utils/constants'; */
-import './WeatherCard.css'
-import cloudDay from "../../images/cloudday.svg"
+import { useContext } from "react";
+import "./WeatherCard.css";
+import cloudDay from "../../images/cloudday.svg";
+import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 
 function WeatherCard({ weatherData }) {
-    return (
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+  if (!weatherData) return null;
+
+  return (
     <div className="weather-card weather-card__background-day">
-        <h2 className="weather-card__temp">{Math.round(weatherData.temperature)}°F</h2>
-        <div className="weather-card__wrapper">
-            <img
-              className="weather-card__image"
-              src={cloudDay}
-              alt="cloudy"
-            />
-        </div>
+      <h2 className="weather-card__temp">
+        {currentTemperatureUnit === "F"
+          ? weatherData.temperatureF
+          : weatherData.temperatureC}
+      </h2>
+      <div className="weather-card__wrapper">
+        <img className="weather-card__image" src={cloudDay} alt="cloudy" />
+      </div>
     </div>
-    );
+  );
 }
 
 export default WeatherCard;
 
-    /* if (!weatherData) return null;
+/* if (!weatherData) return null;
 
     function selectWeatherCondition(weatherData) {
         const weatherCondition = weatherData?.condition?.toLowerCase() || "";

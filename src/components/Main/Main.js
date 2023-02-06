@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Main.css";
 import ItemCard from "../ItemCard/ItemCard.js";
 import WeatherCard from "../WeatherCard/WeatherCard.js";
+import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 
 function Main({ weatherData, defaultClothingItems, onCardClick }) {
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+
   const actualWeather = weatherData.temperature;
 
   const getWeatherType = () => {
@@ -26,7 +29,11 @@ function Main({ weatherData, defaultClothingItems, onCardClick }) {
     <main className="main">
       <WeatherCard weatherData={weatherData} />
       <h3 className="main__header">
-        Today it's {Math.round(actualWeather)}°F / You may want to wear:
+        Today it's{" "}
+        {currentTemperatureUnit === "F"
+          ? weatherData.temperatureF
+          : weatherData.temperatureC}{" "}
+        / You may want to wear:
       </h3>
       <ul className="main__items">
         {clothingOptions.map((item) => (

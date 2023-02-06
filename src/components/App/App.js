@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
@@ -14,6 +15,7 @@ import {
 import { defaultClothingItems } from "../../utils/clothingItems";
 
 const App = () => {
+  const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [weatherData, setWeatherData] = useState({});
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
@@ -25,6 +27,12 @@ const App = () => {
 
   const closeAllModals = () => {
     setActiveModal("");
+  };
+
+  const handleToggleSwitchChange = () => {
+    currentTemperatureUnit === "F"
+      ? setCurrentTemperatureUnit("C")
+      : setCurrentTemperatureUnit("F");
   };
 
   useEffect(() => {
@@ -39,32 +47,36 @@ const App = () => {
 
   return (
     <div className="app">
-      <div className="app__wrapper">
-        <Header
-          weatherData={weatherData}
-          handleAddClick={() => {
-            setActiveModal("add");
-          }}
-        />
-        <Main
-          weatherData={weatherData}
-          defaultClothingItems={defaultClothingItems}
-          onCardClick={handleCardClick}
-        />
-        <Footer />
-      </div>
-      {activeModal === "add" && (
-        <ModalWithForm
-          title="New Garment"
-          buttonText="Add Garment"
-          onClose={closeAllModals}
-        >
-          <NewGarmentModal />
-        </ModalWithForm>
-      )}
-      {activeModal === "preview" && (
-        <ItemModal card={selectedCard} onClose={closeAllModals} />
-      )}
+      <CurrentTemperatureUnitContext.Provider
+        value={{ currentTemperatureUnit, handleToggleSwitchChange }}
+      >
+        <div className="app__wrapper">
+          <Header
+            weatherData={weatherData}
+            handleAddClick={() => {
+              setActiveModal("add");
+            }}
+          />
+          <Main
+            weatherData={weatherData}
+            defaultClothingItems={defaultClothingItems}
+            onCardClick={handleCardClick}
+          />
+          <Footer />
+        </div>
+        {activeModal === "add" && (
+          <ModalWithForm
+            title="New Garment"
+            buttonText="Add Garment"
+            onClose={closeAllModals}
+          >
+            <NewGarmentModal />
+          </ModalWithForm>
+        )}
+        {activeModal === "preview" && (
+          <ItemModal card={selectedCard} onClose={closeAllModals} />
+        )}
+      </CurrentTemperatureUnitContext.Provider>
     </div>
   );
 };
