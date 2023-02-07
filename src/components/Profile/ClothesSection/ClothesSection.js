@@ -16,11 +16,10 @@ function ClothesSection({ clothingItems = [], handleCardClick, openModal }) {
         {clothingItems.map((item) => {
           return (
             <ItemCard
-              isOpen="false"
               clothingOption={item}
               key={item._id}
               name={item.name}
-              image={item.link}
+              image={item.imageUrl}
               weather={item.weather}
               onCardClick={() => {
                 handleCardClick(item);

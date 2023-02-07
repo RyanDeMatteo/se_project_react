@@ -4,7 +4,7 @@ import ItemCard from "../ItemCard/ItemCard.js";
 import WeatherCard from "../WeatherCard/WeatherCard.js";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 
-function Main({ weatherData, defaultClothingItems, onCardClick }) {
+function Main({ weatherData, clothingItems, onCardClick }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
 
   const actualWeather = weatherData.temperature;
@@ -23,7 +23,9 @@ function Main({ weatherData, defaultClothingItems, onCardClick }) {
     return card.weather === getWeatherType();
   }
 
-  const clothingOptions = defaultClothingItems.filter(filterClothing);
+  const clothingOptions = clothingItems.filter((items) =>
+    filterClothing(items)
+  );
 
   return (
     <main className="main">
@@ -33,7 +35,7 @@ function Main({ weatherData, defaultClothingItems, onCardClick }) {
         {currentTemperatureUnit === "F"
           ? weatherData.temperatureF
           : weatherData.temperatureC}{" "}
-        / You may want to wear:
+        and it is {getWeatherType()} / You may want to wear:
       </h3>
       <div className="main__container">
         <ul className="main__items">
@@ -41,6 +43,9 @@ function Main({ weatherData, defaultClothingItems, onCardClick }) {
             <ItemCard
               clothingOption={item}
               key={item._id}
+              name={item.name}
+              image={item.imageUrl}
+              weather={item.weather}
               onCardClick={onCardClick}
             />
           ))}

@@ -7,14 +7,14 @@ import Main from "../Main/Main";
 import Profile from "../Profile/Profile";
 import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import NewGarmentModal from "../Forms/NewGarmentForm";
+import AddItemModal from "../AddItemModal/AddItemModal";
+import DeleteConfirmModal from "../DeleteConfirmModal/DeleteConfirmModal";
 import { latitude, longitude, secretKey } from "../../utils/constants";
 import {
   getForecastWeather,
   filterDataFromWeatherAPI,
 } from "../../utils/weatherAPI";
-import { defaultClothingItems } from "../../utils/clothingItems";
+import { getItems, addItem, removeItem } from "../../utils/api";
 
 const App = () => {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
@@ -38,6 +38,24 @@ const App = () => {
       : setCurrentTemperatureUnit("F");
   };
 
+  const handleAddItemSubmit = (name, imageUrl, weatherType) => {
+    addItem(name, imageUrl, weatherType)
+      .then((item) => {
+        setClothingItems([...clothingItems, item]);
+        closeAllModals();
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const handleItemDelete = (card) => {
+    removeItem(card.id)
+      .then(() => {
+        setClothingItems((cards) => cards.filter((c) => c.id !== card.id));
+        closeAllModals();
+      })
+      .catch((err) => console.log(err));
+  };
+
   useEffect(() => {
     if (latitude && longitude) {
       getForecastWeather(latitude, longitude, secretKey)
@@ -48,14 +66,17 @@ const App = () => {
     }
   }, []);
 
-  /* const fetchClothingItems = () => {
+  const fetchClothingItems = () => {
     getItems()
       .then((data) => {
         setClothingItems(data);
       })
       .catch((err) => console.log(err));
-  }; */
+  };
 
+  React.useEffect(() => {
+    fetchClothingItems();
+  }, []);
   return (
     <div className="app">
       <CurrentTemperatureUnitContext.Provider
@@ -81,7 +102,7 @@ const App = () => {
             <Route path="/">
               <Main
                 weatherData={weatherData}
-                defaultClothingItems={defaultClothingItems}
+                clothingItems={clothingItems}
                 onCardClick={handleCardClick}
               />
             </Route>
@@ -89,16 +110,31 @@ const App = () => {
           <Footer />
         </div>
         {activeModal === "add" && (
-          <ModalWithForm
-            title="New Garment"
-            buttonText="Add Garment"
-            onClose={closeAllModals}
-          >
-            <NewGarmentModal />
-          </ModalWithForm>
+          <AddItemModal
+            onCloseModal={closeAllModals}
+            onAddItem={handleAddItemSubmit}
+          />
         )}
         {activeModal === "preview" && (
-          <ItemModal card={selectedCard} onClose={closeAllModals} />
+          <ItemModal
+            card={selectedCard}
+            onClose={closeAllModals}
+            onDelete={() => {
+              setActiveModal("delete");
+            }}
+          />
+        )}
+        {activeModal === "delete" && (
+          <DeleteConfirmModal
+            name="delete"
+            onClose={closeAllModals}
+            handleConfirm={() => {
+              handleItemDelete(selectedCard);
+            }}
+            handleCancel={() => {
+              setActiveModal("preview");
+            }}
+          />
         )}
       </CurrentTemperatureUnitContext.Provider>
     </div>

@@ -1,12 +1,11 @@
 .clothes-section {
   display: flex;
-  flex-direction: row;
-  width: 75%;
+  flex-direction: column;
 }
 
 .clothes-section__header {
+  margin: 0;
   display: flex;
-  margin-bottom: 16px;
 }
 
 .clothes-section__title {

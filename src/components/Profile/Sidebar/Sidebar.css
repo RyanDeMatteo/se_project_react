@@ -3,6 +3,7 @@
 }
 
 .sidebar__header {
+  padding-top: 5px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -11,6 +12,7 @@
 }
 
 .sidebar__avatar {
+  padding-top: 5px;
   height: 56px;
   width: 56px;
   box-sizing: border-box;
