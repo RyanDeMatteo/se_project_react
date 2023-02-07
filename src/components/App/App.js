@@ -38,8 +38,8 @@ const App = () => {
       : setCurrentTemperatureUnit("F");
   };
 
-  const handleAddItemSubmit = (name, imageUrl, weatherType) => {
-    addItem(name, imageUrl, weatherType)
+  const handleAddItemSubmit = (name, link, weather) => {
+    addItem(name, link, weather)
       .then((item) => {
         setClothingItems([...clothingItems, item]);
         closeAllModals();

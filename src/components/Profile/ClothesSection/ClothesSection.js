@@ -13,11 +13,11 @@ function ClothesSection({ clothingItems = [], handleCardClick, openModal }) {
         </button>
       </div>
       <ul className="clothes-section__items">
-        {clothingItems.map((item) => {
+        {clothingItems.map((item, index) => {
           return (
             <ItemCard
               clothingOption={item}
-              key={item._id}
+              key={index}
               name={item.name}
               image={item.imageUrl}
               weather={item.weather}

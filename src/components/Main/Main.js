@@ -39,10 +39,10 @@ function Main({ weatherData, clothingItems, onCardClick }) {
       </h3>
       <div className="main__container">
         <ul className="main__items">
-          {clothingOptions.map((item) => (
+          {clothingOptions.map((item, index) => (
             <ItemCard
               clothingOption={item}
-              key={item._id}
+              key={index}
               name={item.name}
               image={item.imageUrl}
               weather={item.weather}

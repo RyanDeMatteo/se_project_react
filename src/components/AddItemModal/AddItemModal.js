@@ -19,13 +19,15 @@ const AddItemModal = ({ onAddItem, onCloseModal }) => {
     setWeatherType(evt.target.value);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
     onAddItem(name, imageUrl, weatherType);
   };
 
   return (
     <ModalWithForm
       title="New garment"
+      name="add"
       buttonText="Add garment"
       onClose={onCloseModal}
       handleSubmit={handleSubmit}
@@ -33,6 +35,7 @@ const AddItemModal = ({ onAddItem, onCloseModal }) => {
       <h4 className="form__label">Name</h4>
       <input
         className="form__input form__input_type_name"
+        id="name"
         name="name"
         type="text"
         placeholder="Name"
@@ -46,6 +49,7 @@ const AddItemModal = ({ onAddItem, onCloseModal }) => {
       <input
         className="form__input form__input_type_image"
         name="image"
+        id="link"
         type="url"
         placeholder="Image URL"
         onChange={handleImageUrl}
@@ -58,7 +62,7 @@ const AddItemModal = ({ onAddItem, onCloseModal }) => {
           <input
             className="form__input_type_radio"
             name="temp"
-            value="Hot"
+            value="hot"
             type="radio"
             id="hot"
             onChange={handleWeatherType}
@@ -71,7 +75,7 @@ const AddItemModal = ({ onAddItem, onCloseModal }) => {
           <input
             className="form__input_type_radio"
             name="temp"
-            value="Warm"
+            value="warm"
             type="radio"
             id="warm"
             onChange={handleWeatherType}
@@ -84,7 +88,7 @@ const AddItemModal = ({ onAddItem, onCloseModal }) => {
           <input
             className="form__input_type_radio"
             name="temp"
-            value="Cold"
+            value="cold"
             type="radio"
             id="cold"
             onChange={handleWeatherType}
