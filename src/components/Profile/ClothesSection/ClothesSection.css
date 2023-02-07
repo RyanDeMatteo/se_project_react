@@ -32,10 +32,10 @@
 
 .clothes-section__items {
   display: flex;
-  flex-wrap: wrap;
   justify-content: flex-start;
-  gap: 20px;
-  padding: 0;
+  flex-direction: row;
+  flex-wrap: wrap;
   margin: 0;
-  box-sizing: border-box;
+  padding: 0;
+  column-gap: 15px;
 }

@@ -35,7 +35,7 @@ function Main({ weatherData, clothingItems, onCardClick }) {
         {currentTemperatureUnit === "F"
           ? weatherData.temperatureF
           : weatherData.temperatureC}{" "}
-        and it is {getWeatherType()} / You may want to wear:
+        / You may want to wear:
       </h3>
       <div className="main__container">
         <ul className="main__items">
