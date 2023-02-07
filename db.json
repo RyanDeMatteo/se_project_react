@@ -101,36 +101,6 @@
       "name": "T-Shirt",
       "weather": "hot",
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09"
-    },
-    {
-      "id": 17
-    },
-    {
-      "id": 18
-    },
-    {
-      "name": "Parka",
-      "imageUrl": "https://assets.hermes.com/is/image/hermesproduct/parka-with-removable-lining--262545HG2H-worn-8-0-0-1600-1600-q99_b.jpg",
-      "weatherType": "Cold",
-      "id": 19
-    },
-    {
-      "name": "Parka",
-      "imageUrl": "https://assets.hermes.com/is/image/hermesproduct/parka-with-removable-lining--262545HG2H-worn-8-0-0-1600-1600-q99_b.jpg",
-      "weather": "Cold",
-      "id": 20
-    },
-    {
-      "name": "Big ol coat",
-      "imageUrl": "https://assets.hermes.com/is/image/hermesproduct/parka-with-removable-lining--262545HG2H-worn-8-0-0-1600-1600-q99_b.jpg",
-      "weather": "Cold",
-      "id": 21
-    },
-    {
-      "name": "gagag",
-      "imageUrl": "https://assets.hermes.com/is/image/hermesproduct/parka-with-removable-lining--262545HG2H-worn-8-0-0-1600-1600-q99_b.jpg",
-      "weather": "cold",
-      "id": 22
     }
   ]
 }
