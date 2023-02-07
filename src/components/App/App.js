@@ -66,6 +66,18 @@ const App = () => {
     }
   }, []);
 
+  useEffect(() => {
+    const closeByEscape = (evt) => {
+      if (evt.key === "Escape") {
+        closeAllModals();
+      }
+    };
+
+    document.addEventListener("keydown", closeByEscape);
+
+    return () => document.removeEventListener("keydown", closeByEscape);
+  }, []);
+
   const fetchClothingItems = () => {
     getItems()
       .then((data) => {
